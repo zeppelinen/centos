@@ -34,9 +34,8 @@ RUN yum -y --setopt=tsflags=nodocs update && \
         git \
         npm \
         libpng12-1.2.50-10.el7.x86_64 \
-        libpng12-devel-1.2.50-10.el7.x86_64 && \
-        yum clean all && \
-        easy_install pip && \
+        libpng12-devel-1.2.50-10.el7.x86_64 
+        python2-pip && \
         pip install supervisor && \
         curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer && \
         curl -sL https://rpm.nodesource.com/setup_8.x | bash - && \
