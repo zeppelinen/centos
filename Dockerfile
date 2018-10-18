@@ -34,7 +34,7 @@ RUN yum -y --setopt=tsflags=nodocs update && \
         git \
         npm \
         libpng12-1.2.50-10.el7.x86_64 \
-        libpng12-devel-1.2.50-10.el7.x86_64 
+        libpng12-devel-1.2.50-10.el7.x86_64 \
         python2-pip && \
         pip install supervisor && \
         curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer && \
@@ -44,3 +44,5 @@ RUN yum -y --setopt=tsflags=nodocs update && \
 
 COPY conf/php.ini /etc/php.ini
 COPY conf/php-fpm.d/www.conf /etc/php-fpm.d/www.conf
+EXPOSE 9000
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
